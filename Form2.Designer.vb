@@ -27,6 +27,7 @@ Partial Class Form2
         Me.BTN_back = New System.Windows.Forms.Button()
         Me.BTN_selectAll = New System.Windows.Forms.Button()
         Me.BTN_selectNone = New System.Windows.Forms.Button()
+        Me.TEXTBOX_srcDirectory = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'LISTBOX_selection
@@ -73,6 +74,16 @@ Partial Class Form2
         Me.BTN_selectNone.Text = "Select None"
         Me.BTN_selectNone.UseVisualStyleBackColor = True
         '
+        'TEXTBOX_srcDirectory
+        '
+        Me.TEXTBOX_srcDirectory.Enabled = False
+        Me.TEXTBOX_srcDirectory.FormattingEnabled = True
+        Me.TEXTBOX_srcDirectory.Location = New System.Drawing.Point(13, 13)
+        Me.TEXTBOX_srcDirectory.Name = "TEXTBOX_srcDirectory"
+        Me.TEXTBOX_srcDirectory.Size = New System.Drawing.Size(268, 186)
+        Me.TEXTBOX_srcDirectory.TabIndex = 5
+        Me.TEXTBOX_srcDirectory.Visible = False
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -83,6 +94,7 @@ Partial Class Form2
         Me.Controls.Add(Me.BTN_back)
         Me.Controls.Add(Me.BTN_reroll)
         Me.Controls.Add(Me.LISTBOX_selection)
+        Me.Controls.Add(Me.TEXTBOX_srcDirectory)
         Me.Name = "Form2"
         Me.Text = "Form2"
         Me.ResumeLayout(False)
@@ -93,4 +105,5 @@ Partial Class Form2
     Friend WithEvents BTN_back As System.Windows.Forms.Button
     Friend WithEvents BTN_selectAll As System.Windows.Forms.Button
     Friend WithEvents BTN_selectNone As System.Windows.Forms.Button
+    Friend WithEvents TEXTBOX_srcDirectory As System.Windows.Forms.ListBox
 End Class

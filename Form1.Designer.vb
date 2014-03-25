@@ -69,6 +69,7 @@ Partial Class Form1
         '
         'TEXTBOX_srcDirectory
         '
+        Me.TEXTBOX_srcDirectory.Enabled = False
         Me.TEXTBOX_srcDirectory.Location = New System.Drawing.Point(6, 19)
         Me.TEXTBOX_srcDirectory.Name = "TEXTBOX_srcDirectory"
         Me.TEXTBOX_srcDirectory.Size = New System.Drawing.Size(294, 20)
