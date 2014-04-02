@@ -74,7 +74,6 @@ Partial Class Form1
         Me.TEXTBOX_srcDirectory.Name = "TEXTBOX_srcDirectory"
         Me.TEXTBOX_srcDirectory.Size = New System.Drawing.Size(294, 20)
         Me.TEXTBOX_srcDirectory.TabIndex = 0
-        Me.TEXTBOX_srcDirectory.Text = "C:\"
         '
         'BOX_extensions
         '

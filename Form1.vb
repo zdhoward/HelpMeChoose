@@ -9,7 +9,7 @@ Public Class Form1
     Dim rootFolderPath As String
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        TEXTBOX_srcDirectory.Text = My.Settings.LastBrowsed
     End Sub
 
     Sub DirSearch(ByVal sDir As String, ByVal Indent As Integer)
@@ -42,25 +42,17 @@ Public Class Form1
 
         WildCards = Split(TEXTBOX_extensions.Text)
 
-        Dim FD As New FolderBrowserDialog
-        FD.RootFolder = Environment.SpecialFolder.MyComputer
-        FD.SelectedPath = TEXTBOX_srcDirectory.Text
+        LISTBOX_srcDirectory.Items.Add(TEXTBOX_srcDirectory)
 
-        If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
-            TEXTBOX_srcDirectory.Text = FD.SelectedPath
-            rootFolderPath = FD.SelectedPath
-
-            LISTBOX_srcDirectory.Items.Add(TEXTBOX_srcDirectory)
-            DirSearch(TEXTBOX_srcDirectory.Text, 0)
-        End If
+        DirSearch(TEXTBOX_srcDirectory.Text, 0)
 
         LISTBOX_srcDirectory.Items.RemoveAt(0)
 
         For i = 0 To (NUM_results.Value - 1)
+            Randomize()
             selection.Add(CInt(Math.Floor((upperbound + 1) * Rnd())))
-            LISTBOX_srcDirectory.Items.Add(CInt(Math.Floor((upperbound + 1) * Rnd())))
         Next
-        LISTBOX_srcDirectory.Items.Add(upperbound)
+
         oldUpperbound = upperbound
         upperbound = 0
 
@@ -68,15 +60,24 @@ Public Class Form1
 
     Private Sub BTN_srcDirectory_Click(sender As Object, e As EventArgs) Handles BTN_srcDirectory.Click
 
-        FolderSearch()
+        Dim FD As New FolderBrowserDialog
+        FD.RootFolder = Environment.SpecialFolder.MyComputer
+        FD.SelectedPath = TEXTBOX_srcDirectory.Text
+
+        If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            TEXTBOX_srcDirectory.Text = FD.SelectedPath
+            My.Settings.LastBrowsed = FD.SelectedPath
+        End If
 
     End Sub
 
     Private Sub BTN_helpMeChoose_Click(sender As Object, e As EventArgs) Handles BTN_helpMeChoose.Click
+        selection.Clear()
+
+        FolderSearch()
+
         upperbound = oldUpperbound
         For i = 0 To (NUM_results.Value - 1)
-            'Form2.LISTBOX_selection.Items.Add(i)
-            'Form2.LISTBOX_selection.Items.Add(selection.Item(i))
             Form2.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
             Form2.TEXTBOX_srcDirectory.Items.Add(selectionDirs.Item(selection(i)))
         Next

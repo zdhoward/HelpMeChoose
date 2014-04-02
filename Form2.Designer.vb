@@ -28,6 +28,7 @@ Partial Class Form2
         Me.BTN_selectAll = New System.Windows.Forms.Button()
         Me.BTN_selectNone = New System.Windows.Forms.Button()
         Me.TEXTBOX_srcDirectory = New System.Windows.Forms.ListBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LISTBOX_selection
@@ -35,6 +36,7 @@ Partial Class Form2
         Me.LISTBOX_selection.FormattingEnabled = True
         Me.LISTBOX_selection.Location = New System.Drawing.Point(13, 13)
         Me.LISTBOX_selection.Name = "LISTBOX_selection"
+        Me.LISTBOX_selection.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.LISTBOX_selection.Size = New System.Drawing.Size(268, 186)
         Me.LISTBOX_selection.TabIndex = 0
         '
@@ -84,11 +86,21 @@ Partial Class Form2
         Me.TEXTBOX_srcDirectory.TabIndex = 5
         Me.TEXTBOX_srcDirectory.Visible = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(13, 201)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(90, 23)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "Invert Selection"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(293, 265)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BTN_selectNone)
         Me.Controls.Add(Me.BTN_selectAll)
         Me.Controls.Add(Me.BTN_back)
@@ -106,4 +118,5 @@ Partial Class Form2
     Friend WithEvents BTN_selectAll As System.Windows.Forms.Button
     Friend WithEvents BTN_selectNone As System.Windows.Forms.Button
     Friend WithEvents TEXTBOX_srcDirectory As System.Windows.Forms.ListBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
