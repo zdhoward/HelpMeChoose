@@ -64,10 +64,16 @@ Public Class Form1
         FD.RootFolder = Environment.SpecialFolder.MyComputer
         FD.SelectedPath = TEXTBOX_srcDirectory.Text
 
-        If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
-            TEXTBOX_srcDirectory.Text = FD.SelectedPath
-            My.Settings.LastBrowsed = FD.SelectedPath
-        End If
+        
+
+        Try
+            If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+                TEXTBOX_srcDirectory.Text = FD.SelectedPath
+                My.Settings.LastBrowsed = FD.SelectedPath
+            End If
+        Catch ex As ArgumentException
+            MsgBox("Dialog Box failed: " & vbCrLf & ex.Message)
+        End Try
 
     End Sub
 
@@ -84,5 +90,12 @@ Public Class Form1
 
         Form2.Show()
 
+    End Sub
+
+    Sub Reinitialize()
+        upperbound = 0
+        oldUpperbound = 0
+        selection.Clear()
+        selectionDirs.Clear()
     End Sub
 End Class

@@ -29,6 +29,7 @@ Partial Class Form2
         Me.BTN_selectNone = New System.Windows.Forms.Button()
         Me.TEXTBOX_srcDirectory = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LISTBOX_selection
@@ -95,11 +96,21 @@ Partial Class Form2
         Me.Button1.Text = "Invert Selection"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(288, 13)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(293, 265)
+        Me.ClientSize = New System.Drawing.Size(415, 265)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BTN_selectNone)
         Me.Controls.Add(Me.BTN_selectAll)
@@ -119,4 +130,5 @@ Partial Class Form2
     Friend WithEvents BTN_selectNone As System.Windows.Forms.Button
     Friend WithEvents TEXTBOX_srcDirectory As System.Windows.Forms.ListBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

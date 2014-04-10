@@ -45,7 +45,7 @@ Partial Class Form1
         Me.BOX_srcDirectory.Controls.Add(Me.TEXTBOX_srcDirectory)
         Me.BOX_srcDirectory.Location = New System.Drawing.Point(12, 12)
         Me.BOX_srcDirectory.Name = "BOX_srcDirectory"
-        Me.BOX_srcDirectory.Size = New System.Drawing.Size(341, 133)
+        Me.BOX_srcDirectory.Size = New System.Drawing.Size(341, 53)
         Me.BOX_srcDirectory.TabIndex = 0
         Me.BOX_srcDirectory.TabStop = False
         Me.BOX_srcDirectory.Text = "SourceDirectory"
@@ -55,8 +55,9 @@ Partial Class Form1
         Me.LISTBOX_srcDirectory.FormattingEnabled = True
         Me.LISTBOX_srcDirectory.Location = New System.Drawing.Point(6, 45)
         Me.LISTBOX_srcDirectory.Name = "LISTBOX_srcDirectory"
-        Me.LISTBOX_srcDirectory.Size = New System.Drawing.Size(294, 69)
+        Me.LISTBOX_srcDirectory.Size = New System.Drawing.Size(294, 17)
         Me.LISTBOX_srcDirectory.TabIndex = 2
+        Me.LISTBOX_srcDirectory.Visible = False
         '
         'BTN_srcDirectory
         '
@@ -78,7 +79,7 @@ Partial Class Form1
         'BOX_extensions
         '
         Me.BOX_extensions.Controls.Add(Me.TEXTBOX_extensions)
-        Me.BOX_extensions.Location = New System.Drawing.Point(12, 151)
+        Me.BOX_extensions.Location = New System.Drawing.Point(12, 71)
         Me.BOX_extensions.Name = "BOX_extensions"
         Me.BOX_extensions.Size = New System.Drawing.Size(341, 50)
         Me.BOX_extensions.TabIndex = 1
@@ -98,7 +99,7 @@ Partial Class Form1
         Me.BOX_results.Controls.Add(Me.BTN_helpMeChoose)
         Me.BOX_results.Controls.Add(Me.NUM_results)
         Me.BOX_results.Controls.Add(Me.LABEL_results)
-        Me.BOX_results.Location = New System.Drawing.Point(12, 207)
+        Me.BOX_results.Location = New System.Drawing.Point(12, 127)
         Me.BOX_results.Name = "BOX_results"
         Me.BOX_results.Size = New System.Drawing.Size(341, 50)
         Me.BOX_results.TabIndex = 2
@@ -135,7 +136,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(368, 265)
+        Me.ClientSize = New System.Drawing.Size(368, 185)
         Me.Controls.Add(Me.BOX_results)
         Me.Controls.Add(Me.BOX_extensions)
         Me.Controls.Add(Me.BOX_srcDirectory)
