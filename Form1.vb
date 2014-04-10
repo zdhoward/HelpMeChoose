@@ -10,6 +10,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TEXTBOX_srcDirectory.Text = My.Settings.LastBrowsed
+        NUM_results.Value = My.Settings.NoOfResults
     End Sub
 
     Sub DirSearch(ByVal sDir As String, ByVal Indent As Integer)
@@ -87,6 +88,8 @@ Public Class Form1
             Form2.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
             Form2.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
         Next
+
+        My.Settings.NoOfResults = NUM_results.Value
 
         Form2.Show()
         Me.Hide()

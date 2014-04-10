@@ -77,6 +77,18 @@ Namespace My
                 Me("LastBrowsed") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property NoOfResults() As String
+            Get
+                Return CType(Me("NoOfResults"),String)
+            End Get
+            Set
+                Me("NoOfResults") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

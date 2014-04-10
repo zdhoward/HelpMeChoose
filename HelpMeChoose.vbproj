@@ -61,7 +61,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>HelpMeChoose.ico</ApplicationIcon>
+    <ApplicationIcon>HelpMeChooseIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HelpMeChoose.ico" />
+    <Content Include="HelpMeChooseIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
