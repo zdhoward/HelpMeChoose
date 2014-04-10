@@ -29,7 +29,9 @@ Partial Class Form2
         Me.BTN_selectNone = New System.Windows.Forms.Button()
         Me.TEXTBOX_srcDirectory = New System.Windows.Forms.ListBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BTN_addPlaylist = New System.Windows.Forms.Button()
+        Me.BTN_exportFiles = New System.Windows.Forms.Button()
+        Me.BTN_play = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LISTBOX_selection
@@ -96,21 +98,41 @@ Partial Class Form2
         Me.Button1.Text = "Invert Selection"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'BTN_addPlaylist
         '
-        Me.Button2.Location = New System.Drawing.Point(288, 13)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.BTN_addPlaylist.Location = New System.Drawing.Point(287, 147)
+        Me.BTN_addPlaylist.Name = "BTN_addPlaylist"
+        Me.BTN_addPlaylist.Size = New System.Drawing.Size(90, 23)
+        Me.BTN_addPlaylist.TabIndex = 7
+        Me.BTN_addPlaylist.Text = "Add To Playlist"
+        Me.BTN_addPlaylist.UseVisualStyleBackColor = True
+        '
+        'BTN_exportFiles
+        '
+        Me.BTN_exportFiles.Location = New System.Drawing.Point(287, 13)
+        Me.BTN_exportFiles.Name = "BTN_exportFiles"
+        Me.BTN_exportFiles.Size = New System.Drawing.Size(90, 23)
+        Me.BTN_exportFiles.TabIndex = 8
+        Me.BTN_exportFiles.Text = "Export Files.."
+        Me.BTN_exportFiles.UseVisualStyleBackColor = True
+        '
+        'BTN_play
+        '
+        Me.BTN_play.Location = New System.Drawing.Point(286, 176)
+        Me.BTN_play.Name = "BTN_play"
+        Me.BTN_play.Size = New System.Drawing.Size(90, 23)
+        Me.BTN_play.TabIndex = 9
+        Me.BTN_play.Text = "Play"
+        Me.BTN_play.UseVisualStyleBackColor = True
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(415, 265)
-        Me.Controls.Add(Me.Button2)
+        Me.ClientSize = New System.Drawing.Size(388, 265)
+        Me.Controls.Add(Me.BTN_play)
+        Me.Controls.Add(Me.BTN_exportFiles)
+        Me.Controls.Add(Me.BTN_addPlaylist)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.BTN_selectNone)
         Me.Controls.Add(Me.BTN_selectAll)
@@ -130,5 +152,7 @@ Partial Class Form2
     Friend WithEvents BTN_selectNone As System.Windows.Forms.Button
     Friend WithEvents TEXTBOX_srcDirectory As System.Windows.Forms.ListBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents BTN_addPlaylist As System.Windows.Forms.Button
+    Friend WithEvents BTN_exportFiles As System.Windows.Forms.Button
+    Friend WithEvents BTN_play As System.Windows.Forms.Button
 End Class

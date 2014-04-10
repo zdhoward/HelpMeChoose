@@ -1,5 +1,4 @@
 ﻿Public Class Form2
-
     Private Sub BTN_back_Click(sender As Object, e As EventArgs) Handles BTN_back.Click
         Reinitialize()
         Me.Close()
@@ -38,7 +37,31 @@
     End Sub
 
     Private Sub Reinitialize()
+        TEXTBOX_srcDirectory.Items.Clear()
         LISTBOX_selection.Items.Clear()
         Form1.Reinitialize()
+    End Sub
+
+    Private Sub BTN_play_Click(sender As Object, e As EventArgs) Handles BTN_play.Click
+        For Each path In TEXTBOX_srcDirectory.Items
+            Try
+                System.Diagnostics.Process.Start(path)
+            Catch dirNotFound As System.IO.DirectoryNotFoundException
+                Throw dirNotFound
+            Catch fileNotFound As System.IO.FileNotFoundException
+                Throw fileNotFound
+            Catch pathTooLong As System.IO.PathTooLongException
+                Throw pathTooLong
+            Catch ioEx As System.IO.IOException
+                Throw ioEx
+            Catch security As System.Security.SecurityException
+                Throw security
+            Catch ex As Exception
+                Throw ex
+            End Try
+        Next
+
+
+        
     End Sub
 End Class

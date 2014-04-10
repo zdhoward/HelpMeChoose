@@ -85,7 +85,7 @@ Public Class Form1
         upperbound = oldUpperbound
         For i = 0 To (NUM_results.Value - 1)
             Form2.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
-            Form2.TEXTBOX_srcDirectory.Items.Add(selectionDirs.Item(selection(i)))
+            Form2.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
         Next
 
         Form2.Show()
