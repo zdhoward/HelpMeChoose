@@ -141,7 +141,7 @@ Partial Class Form2
         Me.Controls.Add(Me.LISTBOX_selection)
         Me.Controls.Add(Me.TEXTBOX_srcDirectory)
         Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Text = "Help Me Choose!"
         Me.ResumeLayout(False)
 
     End Sub

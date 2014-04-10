@@ -89,6 +89,7 @@ Public Class Form1
         Next
 
         Form2.Show()
+        Me.Hide()
 
     End Sub
 
