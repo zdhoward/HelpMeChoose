@@ -7,12 +7,17 @@
     End Sub
 
     Private Sub LISTBOX_selection_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_selection.DoubleClick
-        System.Diagnostics.Process.Start(TEXTBOX_srcDirectory.Items(LISTBOX_selection.SelectedIndex))
+        If (LISTBOX_selection.SelectedIndex >= 0) Then
+            System.Diagnostics.Process.Start(TEXTBOX_srcDirectory.Items(LISTBOX_selection.SelectedIndex))
+        Else
+            MsgBox("Please make a selection first")
+        End If
     End Sub
 
     Private Sub BTN_reroll_Click(sender As Object, e As EventArgs) Handles BTN_reroll.Click
         Reinitialize()
-        Form1.BTN_helpMeChoose.PerformClick()
+        Form1.RandomSelect()
+
     End Sub
 
     Private Sub BTN_selectAll_Click(sender As Object, e As EventArgs) Handles BTN_selectAll.Click
@@ -50,7 +55,11 @@
     End Sub
 
     Private Sub LISTBOX_selection_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles LISTBOX_selection.MouseDoubleClick
-        startProcess(LISTBOX_selection.SelectedItem.ToString())
+        If (LISTBOX_selection.SelectedIndex >= 0) Then
+            startProcess(LISTBOX_selection.SelectedItem.ToString())
+        Else
+            MsgBox("Please make a selection first")
+        End If
     End Sub
 
     Private Sub startProcess(path As String)

@@ -79,17 +79,7 @@ Public Class Form1
     End Sub
 
     Private Sub BTN_helpMeChoose_Click(sender As Object, e As EventArgs) Handles BTN_helpMeChoose.Click
-        selection.Clear()
-
-        FolderSearch()
-
-        upperbound = oldUpperbound
-        For i = 0 To (NUM_results.Value - 1)
-            Form2.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
-            Form2.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
-        Next
-
-        My.Settings.NoOfResults = NUM_results.Value
+        RandomSelect()
 
         Form2.Show()
         Me.Hide()
@@ -101,5 +91,19 @@ Public Class Form1
         oldUpperbound = 0
         selection.Clear()
         selectionDirs.Clear()
+    End Sub
+
+    Sub RandomSelect()
+        selection.Clear()
+
+        FolderSearch()
+
+        upperbound = oldUpperbound
+        For i = 0 To (NUM_results.Value - 1)
+            Form2.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
+            Form2.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
+        Next
+
+        My.Settings.NoOfResults = NUM_results.Value
     End Sub
 End Class

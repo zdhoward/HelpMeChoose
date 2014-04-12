@@ -92,7 +92,7 @@ Partial Class Form1
         Me.TEXTBOX_extensions.Name = "TEXTBOX_extensions"
         Me.TEXTBOX_extensions.Size = New System.Drawing.Size(294, 20)
         Me.TEXTBOX_extensions.TabIndex = 0
-        Me.TEXTBOX_extensions.Text = ".avi .mov .mp4 .mpg .mkv .wmv .asf .asx .dat .rm .rmvb"
+        Me.TEXTBOX_extensions.Text = ".avi .mov .mp4 .mpg .mkv .wmv .asf .asx .rm .rmvb"
         '
         'BOX_results
         '
