@@ -22,6 +22,7 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.LISTBOX_selection = New System.Windows.Forms.ListBox()
         Me.BTN_reroll = New System.Windows.Forms.Button()
         Me.BTN_back = New System.Windows.Forms.Button()
@@ -40,12 +41,13 @@ Partial Class Form2
         Me.LISTBOX_selection.Location = New System.Drawing.Point(13, 13)
         Me.LISTBOX_selection.Name = "LISTBOX_selection"
         Me.LISTBOX_selection.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.LISTBOX_selection.Size = New System.Drawing.Size(268, 186)
+        Me.LISTBOX_selection.Size = New System.Drawing.Size(268, 17)
         Me.LISTBOX_selection.TabIndex = 0
         '
         'BTN_reroll
         '
-        Me.BTN_reroll.Location = New System.Drawing.Point(206, 230)
+        Me.BTN_reroll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BTN_reroll.Location = New System.Drawing.Point(205, 71)
         Me.BTN_reroll.Name = "BTN_reroll"
         Me.BTN_reroll.Size = New System.Drawing.Size(75, 23)
         Me.BTN_reroll.TabIndex = 1
@@ -54,7 +56,8 @@ Partial Class Form2
         '
         'BTN_back
         '
-        Me.BTN_back.Location = New System.Drawing.Point(13, 230)
+        Me.BTN_back.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BTN_back.Location = New System.Drawing.Point(12, 71)
         Me.BTN_back.Name = "BTN_back"
         Me.BTN_back.Size = New System.Drawing.Size(75, 23)
         Me.BTN_back.TabIndex = 2
@@ -63,7 +66,8 @@ Partial Class Form2
         '
         'BTN_selectAll
         '
-        Me.BTN_selectAll.Location = New System.Drawing.Point(125, 201)
+        Me.BTN_selectAll.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BTN_selectAll.Location = New System.Drawing.Point(124, 42)
         Me.BTN_selectAll.Name = "BTN_selectAll"
         Me.BTN_selectAll.Size = New System.Drawing.Size(75, 23)
         Me.BTN_selectAll.TabIndex = 3
@@ -72,7 +76,8 @@ Partial Class Form2
         '
         'BTN_selectNone
         '
-        Me.BTN_selectNone.Location = New System.Drawing.Point(206, 201)
+        Me.BTN_selectNone.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.BTN_selectNone.Location = New System.Drawing.Point(205, 42)
         Me.BTN_selectNone.Name = "BTN_selectNone"
         Me.BTN_selectNone.Size = New System.Drawing.Size(75, 23)
         Me.BTN_selectNone.TabIndex = 4
@@ -85,13 +90,14 @@ Partial Class Form2
         Me.TEXTBOX_srcDirectory.FormattingEnabled = True
         Me.TEXTBOX_srcDirectory.Location = New System.Drawing.Point(13, 13)
         Me.TEXTBOX_srcDirectory.Name = "TEXTBOX_srcDirectory"
-        Me.TEXTBOX_srcDirectory.Size = New System.Drawing.Size(268, 186)
+        Me.TEXTBOX_srcDirectory.Size = New System.Drawing.Size(268, 17)
         Me.TEXTBOX_srcDirectory.TabIndex = 5
         Me.TEXTBOX_srcDirectory.Visible = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 201)
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(12, 42)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 23)
         Me.Button1.TabIndex = 6
@@ -100,7 +106,8 @@ Partial Class Form2
         '
         'BTN_addPlaylist
         '
-        Me.BTN_addPlaylist.Location = New System.Drawing.Point(287, 147)
+        Me.BTN_addPlaylist.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BTN_addPlaylist.Location = New System.Drawing.Point(287, 42)
         Me.BTN_addPlaylist.Name = "BTN_addPlaylist"
         Me.BTN_addPlaylist.Size = New System.Drawing.Size(90, 23)
         Me.BTN_addPlaylist.TabIndex = 7
@@ -118,7 +125,8 @@ Partial Class Form2
         '
         'BTN_play
         '
-        Me.BTN_play.Location = New System.Drawing.Point(286, 176)
+        Me.BTN_play.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BTN_play.Location = New System.Drawing.Point(286, 71)
         Me.BTN_play.Name = "BTN_play"
         Me.BTN_play.Size = New System.Drawing.Size(90, 23)
         Me.BTN_play.TabIndex = 9
@@ -129,7 +137,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(388, 265)
+        Me.ClientSize = New System.Drawing.Size(388, 106)
         Me.Controls.Add(Me.BTN_play)
         Me.Controls.Add(Me.BTN_exportFiles)
         Me.Controls.Add(Me.BTN_addPlaylist)
@@ -140,6 +148,7 @@ Partial Class Form2
         Me.Controls.Add(Me.BTN_reroll)
         Me.Controls.Add(Me.LISTBOX_selection)
         Me.Controls.Add(Me.TEXTBOX_srcDirectory)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form2"
         Me.Text = "Help Me Choose!"
         Me.ResumeLayout(False)

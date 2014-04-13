@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.BOX_srcDirectory = New System.Windows.Forms.GroupBox()
         Me.LISTBOX_srcDirectory = New System.Windows.Forms.ListBox()
         Me.BTN_srcDirectory = New System.Windows.Forms.Button()
@@ -140,6 +141,7 @@ Partial Class Form1
         Me.Controls.Add(Me.BOX_results)
         Me.Controls.Add(Me.BOX_extensions)
         Me.Controls.Add(Me.BOX_srcDirectory)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Form1"
         Me.Text = "Help Me Choose!"
         Me.BOX_srcDirectory.ResumeLayout(False)
