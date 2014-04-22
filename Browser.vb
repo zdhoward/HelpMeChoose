@@ -1,9 +1,9 @@
-﻿Public Class Form2
+﻿'Imports WMPDLL
+Public Class Browser
     Private Sub BTN_back_Click(sender As Object, e As EventArgs) Handles BTN_back.Click
         Reinitialize()
-        Form1.Visible = True
+        Main.Visible = True
         Me.Close()
-
     End Sub
 
     Private Sub LISTBOX_selection_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_selection.DoubleClick
@@ -16,8 +16,7 @@
 
     Private Sub BTN_reroll_Click(sender As Object, e As EventArgs) Handles BTN_reroll.Click
         Reinitialize()
-        Form1.RandomSelect()
-
+        Main.RandomSelect()
     End Sub
 
     Private Sub BTN_selectAll_Click(sender As Object, e As EventArgs) Handles BTN_selectAll.Click
@@ -32,10 +31,12 @@
         Next
     End Sub
 
+    ' Reinitialize()
+    ' This calls for every required field to be reset and readied for it's next use
     Private Sub Reinitialize()
         TEXTBOX_srcDirectory.Items.Clear()
         LISTBOX_selection.Items.Clear()
-        Form1.Reinitialize()
+        Main.Reinitialize()
     End Sub
 
     Private Sub BTN_play_Click(sender As Object, e As EventArgs) Handles BTN_play.Click
@@ -50,8 +51,6 @@
 
     Private Sub Form2_Load(sender As Object, e As EventArgs)
         LISTBOX_selection.Height = ((LISTBOX_selection.Items.Count + 1) * LISTBOX_selection.ItemHeight)
-
-        'Controls
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -64,9 +63,34 @@
         Next
     End Sub
 
+    Private Sub Browser_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        ' Make sure if Browser is closed and Main is not intended for use again, close it down
+        If (Main.Visible() = False) Then
+            Main.Close()
+        End If
+    End Sub
+
     Private Sub Form2_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Position Window
+        ' This is too complicated and not functioning as desired
         LISTBOX_selection.Height = ((LISTBOX_selection.Items.Count() + 1) * LISTBOX_selection.ItemHeight)
-        'Me.Height += (16 * 4)
         Me.Height = LISTBOX_selection.Height + 120
+        Me.SetDesktopLocation((Me.Location.X - (Me.Size.Height / 2)), (Me.Location.Y - (Me.Size.Width / 2)))
+
+        ' Set the Minimum and Maximum form sizes as the dynamically generated size
+        Me.MinimumSize = New Size(Me.Width, Me.Height)
+        Me.MaximumSize = New Size(Screen.PrimaryScreen.Bounds.Width, Me.Height)
+    End Sub
+
+    Private Sub CreatePlaylist(ByRef media() As String, ByVal name As String)
+        'create playlist
+        'Dim newPlayList As WMPLib.IWMPPlaylist = wmpControl.playlistCollection.newPlaylist("soundsToPlay")
+        'newPlayList.appendItem(wmpControl.newMedia("C:\Sample1.mp3"))
+        'newPlayList.appendItem(wmpControl.newMedia("C:\Sample2.mp3"))
+        'play the list
+        'wmpControl.Visible = False
+        'wmpControl.currentPlaylist = newPlayList
+        'wmpControl.stretchToFit = True
+        'wmpControl.Ctlcontrols.play()
     End Sub
 End Class
