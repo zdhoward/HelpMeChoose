@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Public Class Form1
+Public Class Main
 
     Dim WildCards() As String
     Dim upperbound As Integer = 0
@@ -11,6 +11,12 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TEXTBOX_srcDirectory.Text = My.Settings.LastBrowsed
         NUM_results.Value = My.Settings.NoOfResults
+    End Sub
+
+    'If Main is closed and not just hidden, exit application
+    Private Sub Form1_Closed(sender As Object, e As EventArgs) Handles MyBase.FormClosed
+        ' This is only a failsafe to make sure the application will completely stop as desired
+        Application.Exit()
     End Sub
 
     Sub DirSearch(ByVal sDir As String, ByVal Indent As Integer)
@@ -65,7 +71,7 @@ Public Class Form1
         FD.RootFolder = Environment.SpecialFolder.MyComputer
         FD.SelectedPath = TEXTBOX_srcDirectory.Text
 
-        
+
 
         Try
             If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
@@ -81,7 +87,7 @@ Public Class Form1
     Private Sub BTN_helpMeChoose_Click(sender As Object, e As EventArgs) Handles BTN_helpMeChoose.Click
         RandomSelect()
 
-        Form2.Show()
+        Browser.Show()
         Me.Hide()
 
     End Sub
@@ -100,8 +106,8 @@ Public Class Form1
 
         upperbound = oldUpperbound
         For i = 0 To (NUM_results.Value - 1)
-            Form2.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
-            Form2.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
+            Browser.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
+            Browser.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
         Next
 
         My.Settings.NoOfResults = NUM_results.Value
