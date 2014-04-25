@@ -33,10 +33,19 @@ Partial Class Main
         Me.BTN_helpMeChoose = New System.Windows.Forms.Button()
         Me.NUM_results = New System.Windows.Forms.NumericUpDown()
         Me.LABEL_results = New System.Windows.Forms.Label()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FavouritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExtensionMenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ApplicationInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LISTBOX_folders = New System.Windows.Forms.ListBox()
         Me.BOX_srcDirectory.SuspendLayout()
         Me.BOX_extensions.SuspendLayout()
         Me.BOX_results.SuspendLayout()
         CType(Me.NUM_results, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'BOX_srcDirectory
@@ -44,7 +53,7 @@ Partial Class Main
         Me.BOX_srcDirectory.Controls.Add(Me.LISTBOX_srcDirectory)
         Me.BOX_srcDirectory.Controls.Add(Me.BTN_srcDirectory)
         Me.BOX_srcDirectory.Controls.Add(Me.TEXTBOX_srcDirectory)
-        Me.BOX_srcDirectory.Location = New System.Drawing.Point(12, 12)
+        Me.BOX_srcDirectory.Location = New System.Drawing.Point(12, 27)
         Me.BOX_srcDirectory.Name = "BOX_srcDirectory"
         Me.BOX_srcDirectory.Size = New System.Drawing.Size(341, 53)
         Me.BOX_srcDirectory.TabIndex = 0
@@ -80,7 +89,7 @@ Partial Class Main
         'BOX_extensions
         '
         Me.BOX_extensions.Controls.Add(Me.TEXTBOX_extensions)
-        Me.BOX_extensions.Location = New System.Drawing.Point(12, 71)
+        Me.BOX_extensions.Location = New System.Drawing.Point(12, 86)
         Me.BOX_extensions.Name = "BOX_extensions"
         Me.BOX_extensions.Size = New System.Drawing.Size(341, 50)
         Me.BOX_extensions.TabIndex = 1
@@ -100,7 +109,7 @@ Partial Class Main
         Me.BOX_results.Controls.Add(Me.BTN_helpMeChoose)
         Me.BOX_results.Controls.Add(Me.NUM_results)
         Me.BOX_results.Controls.Add(Me.LABEL_results)
-        Me.BOX_results.Location = New System.Drawing.Point(12, 127)
+        Me.BOX_results.Location = New System.Drawing.Point(12, 142)
         Me.BOX_results.Name = "BOX_results"
         Me.BOX_results.Size = New System.Drawing.Size(341, 50)
         Me.BOX_results.TabIndex = 2
@@ -133,20 +142,79 @@ Partial Class Main
         Me.LABEL_results.TabIndex = 0
         Me.LABEL_results.Text = "Number of results:"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(368, 24)
+        Me.MenuStrip1.TabIndex = 3
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'ToolsToolStripMenuItem
+        '
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FavouritesToolStripMenuItem, Me.ExtensionMenuToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Text = "&Tools"
+        '
+        'FavouritesToolStripMenuItem
+        '
+        Me.FavouritesToolStripMenuItem.Name = "FavouritesToolStripMenuItem"
+        Me.FavouritesToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.FavouritesToolStripMenuItem.Text = "Favourites"
+        '
+        'ExtensionMenuToolStripMenuItem
+        '
+        Me.ExtensionMenuToolStripMenuItem.Name = "ExtensionMenuToolStripMenuItem"
+        Me.ExtensionMenuToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.ExtensionMenuToolStripMenuItem.Text = "Extension Menu"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HelpToolStripMenuItem, Me.ApplicationInfoToolStripMenuItem})
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.AboutToolStripMenuItem.Text = "&Help"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.HelpToolStripMenuItem.Text = "About Me"
+        '
+        'ApplicationInfoToolStripMenuItem
+        '
+        Me.ApplicationInfoToolStripMenuItem.Name = "ApplicationInfoToolStripMenuItem"
+        Me.ApplicationInfoToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.ApplicationInfoToolStripMenuItem.Text = "Application Info"
+        '
+        'LISTBOX_folders
+        '
+        Me.LISTBOX_folders.FormattingEnabled = True
+        Me.LISTBOX_folders.Location = New System.Drawing.Point(18, 72)
+        Me.LISTBOX_folders.Name = "LISTBOX_folders"
+        Me.LISTBOX_folders.Size = New System.Drawing.Size(294, 4)
+        Me.LISTBOX_folders.TabIndex = 3
+        Me.LISTBOX_folders.Visible = False
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(368, 185)
+        Me.ClientSize = New System.Drawing.Size(368, 198)
+        Me.Controls.Add(Me.LISTBOX_folders)
         Me.Controls.Add(Me.BOX_results)
         Me.Controls.Add(Me.BOX_extensions)
         Me.Controls.Add(Me.BOX_srcDirectory)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(384, 223)
-        Me.MinimumSize = New System.Drawing.Size(384, 223)
+        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MaximumSize = New System.Drawing.Size(384, 236)
+        Me.MinimumSize = New System.Drawing.Size(384, 236)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Help Me Choose!"
+        Me.Text = "HelpMeChoose!"
         Me.BOX_srcDirectory.ResumeLayout(False)
         Me.BOX_srcDirectory.PerformLayout()
         Me.BOX_extensions.ResumeLayout(False)
@@ -154,7 +222,10 @@ Partial Class Main
         Me.BOX_results.ResumeLayout(False)
         Me.BOX_results.PerformLayout()
         CType(Me.NUM_results, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents BOX_srcDirectory As System.Windows.Forms.GroupBox
@@ -167,5 +238,13 @@ Partial Class Main
     Friend WithEvents LABEL_results As System.Windows.Forms.Label
     Friend WithEvents BTN_srcDirectory As System.Windows.Forms.Button
     Friend WithEvents LISTBOX_srcDirectory As System.Windows.Forms.ListBox
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FavouritesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ExtensionMenuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ApplicationInfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LISTBOX_folders As System.Windows.Forms.ListBox
 
 End Class

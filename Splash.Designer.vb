@@ -84,7 +84,7 @@ Partial Class Splash
         Me.Version.Name = "Version"
         Me.Version.Size = New System.Drawing.Size(241, 20)
         Me.Version.TabIndex = 1
-        Me.Version.Text = "Version 0.6.5"
+        Me.Version.Text = "Version 0.6.6"
         '
         'Copyright
         '

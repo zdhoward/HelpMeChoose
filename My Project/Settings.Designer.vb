@@ -89,6 +89,30 @@ Namespace My
                 Me("NoOfResults") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".avi .mov .mp4 .mpg .mkv .wmv .asf .asx .rm .rmvb")>  _
+        Public Property FileExtensions() As String
+            Get
+                Return CType(Me("FileExtensions"),String)
+            End Get
+            Set
+                Me("FileExtensions") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Favourites() As String
+            Get
+                Return CType(Me("Favourites"),String)
+            End Get
+            Set
+                Me("Favourites") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

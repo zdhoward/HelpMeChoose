@@ -25,7 +25,6 @@
         '  String.Format() in Help for more information.
         '
         Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
-
         'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
         'Copyright info
@@ -50,4 +49,5 @@
         Me.Close()
         LoadMain.Stop()
     End Sub
+
 End Class

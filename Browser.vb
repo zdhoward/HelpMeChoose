@@ -1,4 +1,4 @@
-﻿'Imports WMPDLL
+﻿'Imports WMPLib
 Public Class Browser
     Private Sub BTN_back_Click(sender As Object, e As EventArgs) Handles BTN_back.Click
         Reinitialize()
@@ -49,10 +49,6 @@ Public Class Browser
         End If
     End Sub
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs)
-        LISTBOX_selection.Height = ((LISTBOX_selection.Items.Count + 1) * LISTBOX_selection.ItemHeight)
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         For i As Integer = 0 To LISTBOX_selection.Items.Count - 1
             If (LISTBOX_selection.GetSelected(i) = True) Then
@@ -70,12 +66,15 @@ Public Class Browser
         End If
     End Sub
 
-    Private Sub Form2_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Browser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Resize window accordingly
+        LISTBOX_selection.Height = ((LISTBOX_selection.Items.Count() + 1) * LISTBOX_selection.ItemHeight)
+        LISTBOX_folders.Height = LISTBOX_selection.Height
+        Me.Height = LISTBOX_selection.Height + 120
+
         ' Position Window
         ' This is too complicated and not functioning as desired
-        LISTBOX_selection.Height = ((LISTBOX_selection.Items.Count() + 1) * LISTBOX_selection.ItemHeight)
-        Me.Height = LISTBOX_selection.Height + 120
-        Me.SetDesktopLocation((Me.Location.X - (Me.Size.Height / 2)), (Me.Location.Y - (Me.Size.Width / 2)))
+        'Me.SetDesktopLocation((Me.Location.X - (Me.Size.Height / 2)), (Me.Location.Y - (Me.Size.Width / 2)))
 
         ' Set the Minimum and Maximum form sizes as the dynamically generated size
         Me.MinimumSize = New Size(Me.Width, Me.Height)
