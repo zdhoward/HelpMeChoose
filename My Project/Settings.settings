@@ -2,14 +2,17 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
   <Settings>
-    <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="LastBrowsed" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\</Value>
     </Setting>
     <Setting Name="NoOfResults" Type="System.String" Scope="User">
       <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="FileExtensions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.avi .mov .mp4 .mpg .mkv .wmv .asf .asx .rm .rmvb</Value>
+    </Setting>
+    <Setting Name="Favourites" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

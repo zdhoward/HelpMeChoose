@@ -1,4 +1,6 @@
 ﻿Imports System.IO
+Imports System.Text.RegularExpressions
+
 Public Class Main
 
     Dim WildCards() As String
@@ -7,25 +9,30 @@ Public Class Main
     Dim selection As New List(Of Integer)
     Dim selectionDirs As New List(Of String)
     Dim rootFolderPath As String
+    Dim parentFolder As String
+    Public oldRandomNums As New List(Of Integer)
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TEXTBOX_srcDirectory.Text = My.Settings.LastBrowsed
         NUM_results.Value = My.Settings.NoOfResults
+        TEXTBOX_extensions.Text = My.Settings.FileExtensions
     End Sub
 
     'If Main is closed and not just hidden, exit application
-    Private Sub Form1_Closed(sender As Object, e As EventArgs) Handles MyBase.FormClosed
-        ' This is only a failsafe to make sure the application will completely stop as desired
+    Private Sub Main_Closed(sender As Object, e As EventArgs) Handles MyBase.FormClosed
         Application.Exit()
     End Sub
 
-    Sub DirSearch(ByVal sDir As String, ByVal Indent As Integer)
+    Sub RecursiveSearch(ByVal sDir As String, ByVal Indent As Integer)
+        Dim series As String = ""
+        Dim dirName As String = ""
+
         Try
             For Each d As String In Directory.GetDirectories(sDir)
                 If d Like "*.*{4}" Then
                     LISTBOX_srcDirectory.Items.Add(d)
                 Else
-                    DirSearch(d, 0)
+                    RecursiveSearch(d, 0)
                 End If
             Next
         Catch x As System.Exception
@@ -35,8 +42,19 @@ Public Class Main
             Dim FI As FileInfo = New FileInfo(f)
             For Each wc As String In WildCards
                 If FI.Name Like "*" + wc Then
+                    For Each folder In Split(sDir, "\")
+                        If (folder.Contains("Season") Or folder.Contains("Raw Tapes") Or folder.Contains("Extras") Or folder.Contains("Series") Or Regex.IsMatch(folder, "^[0-9 ]+$") Or Regex.IsMatch(folder, "[Ss][0-9 ]+[Ee][0-9 ]") Or Regex.IsMatch(folder, "[0-9]+[Xx][0-9]+")) Then
+                            ' Filter Name
+                        Else
+                            series = folder
+                        End If
+                        dirName = folder
+                    Next
+
                     upperbound += 1
                     LISTBOX_srcDirectory.Items.Add(FI.Name)
+                    LISTBOX_folders.Items.Add(dirName)
+                    LISTBOX_series.Items.Add(series)
                     selectionDirs.Add(FI.ToString)
                 End If
             Next
@@ -51,14 +69,11 @@ Public Class Main
 
         LISTBOX_srcDirectory.Items.Add(TEXTBOX_srcDirectory)
 
-        DirSearch(TEXTBOX_srcDirectory.Text, 0)
+        RecursiveSearch(TEXTBOX_srcDirectory.Text, 0)
 
         LISTBOX_srcDirectory.Items.RemoveAt(0)
 
-        For i = 0 To (NUM_results.Value - 1)
-            Randomize()
-            selection.Add(CInt(Math.Floor((upperbound + 1) * Rnd())))
-        Next
+        GenerateRandomNumbers(NUM_results.Value - 1)
 
         oldUpperbound = upperbound
         upperbound = 0
@@ -70,8 +85,6 @@ Public Class Main
         Dim FD As New FolderBrowserDialog
         FD.RootFolder = Environment.SpecialFolder.MyComputer
         FD.SelectedPath = TEXTBOX_srcDirectory.Text
-
-
 
         Try
             If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
@@ -86,6 +99,7 @@ Public Class Main
 
     Private Sub BTN_helpMeChoose_Click(sender As Object, e As EventArgs) Handles BTN_helpMeChoose.Click
         RandomSelect()
+        My.Settings.Save()
 
         Browser.Show()
         Me.Hide()
@@ -106,10 +120,59 @@ Public Class Main
 
         upperbound = oldUpperbound
         For i = 0 To (NUM_results.Value - 1)
-            Browser.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
-            Browser.TEXTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
+            
+            Try
+                Browser.LISTBOX_selection.Items.Add(LISTBOX_srcDirectory.Items(selection.Item(i)))
+                Browser.LISTBOX_folders.Items.Add(LISTBOX_folders.Items(selection(i)))
+                Browser.LISTBOX_series.Items.Add(LISTBOX_series.Items(selection(i)))
+
+                Browser.LISTBOX_srcDirectory.Items.Add(Chr(34) & selectionDirs.Item(selection(i)) & Chr(34))
+            Catch ex As Exception
+                ' As of now this appears as "Access denied"
+            End Try
         Next
 
         My.Settings.NoOfResults = NUM_results.Value
     End Sub
+
+    Private Sub FavouritesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FavouritesToolStripMenuItem.Click
+        Favourites.Show()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+        MsgBox("This was created by Zach Howard: http://www.ZachHoward.me")
+    End Sub
+
+    Private Sub ApplicationInfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ApplicationInfoToolStripMenuItem.Click
+        Splash.Show()
+        Splash.ProgressBar.Visible = False
+        Splash.LoadingTimer.Interval *= 2
+    End Sub
+
+    Private Sub UpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateToolStripMenuItem.Click
+        MsgBox("This will update soon")
+    End Sub
+
+    Private Sub GenerateRandomNumbers(amount As Integer)
+        Dim num = 0
+        Dim done = False
+
+        For i = 0 To (amount)
+            ' While num does not equal oldRandomNums
+            If (oldRandomNums.Contains(num)) Then
+                While (oldRandomNums.Contains(num))
+                    Randomize()
+                    num = CInt(Math.Floor((upperbound + 1) * Rnd()))
+                End While
+            Else
+                Randomize()
+                num = CInt(Math.Floor((upperbound + 1) * Rnd()))
+            End If
+
+            selection.Add(num)
+            oldRandomNums.Add(num)
+
+        Next
+    End Sub
+
 End Class
