@@ -6,6 +6,7 @@
 
         Try
             If FD.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+                LISTBOX_dirNames.Items.Add(FD.SelectedPath(0) + ":\ ... " + Path.GetFileName(FD.SelectedPath))
                 LISTBOX_dirs.Items.Add(FD.SelectedPath)
                 increaseHeight(1)
                 My.Settings.LastBrowsed = FD.SelectedPath
@@ -24,21 +25,21 @@
 
     Private Sub increaseHeight(_height As Integer)
         For i As Integer = 1 To _height
-            LISTBOX_dirs.Height += LISTBOX_dirs.ItemHeight
+            LISTBOX_dirNames.Height += LISTBOX_dirNames.ItemHeight
             Me.Height += LISTBOX_dirs.ItemHeight
         Next
     End Sub
 
     Private Sub decreaseHeight(_height As Integer)
         For i As Integer = 1 To _height
-            LISTBOX_dirs.Height -= LISTBOX_dirs.ItemHeight
+            LISTBOX_dirNames.Height -= LISTBOX_dirNames.ItemHeight
             Me.Height -= LISTBOX_dirs.ItemHeight
         Next
     End Sub
 
-    Private Sub LISTBOX_dirs_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_dirs.DoubleClick
-        If (LISTBOX_dirs.SelectedIndex >= 0) Then
-            Main.TEXTBOX_srcDirectory.Text = LISTBOX_dirs.Items.Item(LISTBOX_dirs.SelectedIndex)
+    Private Sub LISTBOX_dirNames_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_dirNames.DoubleClick
+        If (LISTBOX_dirNames.SelectedIndex >= 0) Then
+            Main.TEXTBOX_srcDirectory.Text = LISTBOX_dirs.Items.Item(LISTBOX_dirNames.SelectedIndex)
         End If
     End Sub
 
@@ -56,9 +57,10 @@
 
     Private Sub Favourites_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Load Favourites
-        For Each fav In Split(My.Settings.Favourites, "|")
+        For Each fav As String In Split(My.Settings.Favourites, "|")
             If (fav.Equals("") = False) Then
                 LISTBOX_dirs.Items.Add(fav)
+                LISTBOX_dirNames.Items.Add(fav(0) + ":\ ... " + Path.GetFileName(fav))
                 increaseHeight(1)
             End If
         Next

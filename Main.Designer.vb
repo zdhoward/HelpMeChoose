@@ -24,6 +24,7 @@ Partial Class Main
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.BOX_srcDirectory = New System.Windows.Forms.GroupBox()
+        Me.LISTBOX_series = New System.Windows.Forms.ListBox()
         Me.LISTBOX_srcDirectory = New System.Windows.Forms.ListBox()
         Me.BTN_srcDirectory = New System.Windows.Forms.Button()
         Me.TEXTBOX_srcDirectory = New System.Windows.Forms.TextBox()
@@ -37,10 +38,13 @@ Partial Class Main
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FavouritesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExtensionMenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ApplicationInfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LISTBOX_folders = New System.Windows.Forms.ListBox()
+        Me.LBL_TV = New System.Windows.Forms.Label()
+        Me.CHECKBOX_TV = New System.Windows.Forms.CheckBox()
         Me.BOX_srcDirectory.SuspendLayout()
         Me.BOX_extensions.SuspendLayout()
         Me.BOX_results.SuspendLayout()
@@ -50,6 +54,7 @@ Partial Class Main
         '
         'BOX_srcDirectory
         '
+        Me.BOX_srcDirectory.Controls.Add(Me.LISTBOX_series)
         Me.BOX_srcDirectory.Controls.Add(Me.LISTBOX_srcDirectory)
         Me.BOX_srcDirectory.Controls.Add(Me.BTN_srcDirectory)
         Me.BOX_srcDirectory.Controls.Add(Me.TEXTBOX_srcDirectory)
@@ -59,6 +64,15 @@ Partial Class Main
         Me.BOX_srcDirectory.TabIndex = 0
         Me.BOX_srcDirectory.TabStop = False
         Me.BOX_srcDirectory.Text = "SourceDirectory"
+        '
+        'LISTBOX_series
+        '
+        Me.LISTBOX_series.FormattingEnabled = True
+        Me.LISTBOX_series.Location = New System.Drawing.Point(6, 49)
+        Me.LISTBOX_series.Name = "LISTBOX_series"
+        Me.LISTBOX_series.Size = New System.Drawing.Size(294, 4)
+        Me.LISTBOX_series.TabIndex = 4
+        Me.LISTBOX_series.Visible = False
         '
         'LISTBOX_srcDirectory
         '
@@ -91,7 +105,7 @@ Partial Class Main
         Me.BOX_extensions.Controls.Add(Me.TEXTBOX_extensions)
         Me.BOX_extensions.Location = New System.Drawing.Point(12, 86)
         Me.BOX_extensions.Name = "BOX_extensions"
-        Me.BOX_extensions.Size = New System.Drawing.Size(341, 50)
+        Me.BOX_extensions.Size = New System.Drawing.Size(308, 50)
         Me.BOX_extensions.TabIndex = 1
         Me.BOX_extensions.TabStop = False
         Me.BOX_extensions.Text = "File Extensions (seperate with a space)"
@@ -144,7 +158,7 @@ Partial Class Main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.UpdateToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(368, 24)
@@ -169,6 +183,12 @@ Partial Class Main
         Me.ExtensionMenuToolStripMenuItem.Name = "ExtensionMenuToolStripMenuItem"
         Me.ExtensionMenuToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
         Me.ExtensionMenuToolStripMenuItem.Text = "Extension Menu"
+        '
+        'UpdateToolStripMenuItem
+        '
+        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
+        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
+        Me.UpdateToolStripMenuItem.Text = "&Update"
         '
         'AboutToolStripMenuItem
         '
@@ -198,11 +218,31 @@ Partial Class Main
         Me.LISTBOX_folders.TabIndex = 3
         Me.LISTBOX_folders.Visible = False
         '
+        'LBL_TV
+        '
+        Me.LBL_TV.AutoSize = True
+        Me.LBL_TV.Location = New System.Drawing.Point(326, 96)
+        Me.LBL_TV.Name = "LBL_TV"
+        Me.LBL_TV.Size = New System.Drawing.Size(21, 13)
+        Me.LBL_TV.TabIndex = 4
+        Me.LBL_TV.Text = "TV"
+        '
+        'CHECKBOX_TV
+        '
+        Me.CHECKBOX_TV.AutoSize = True
+        Me.CHECKBOX_TV.Location = New System.Drawing.Point(329, 112)
+        Me.CHECKBOX_TV.Name = "CHECKBOX_TV"
+        Me.CHECKBOX_TV.Size = New System.Drawing.Size(15, 14)
+        Me.CHECKBOX_TV.TabIndex = 5
+        Me.CHECKBOX_TV.UseVisualStyleBackColor = True
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(368, 198)
+        Me.Controls.Add(Me.CHECKBOX_TV)
+        Me.Controls.Add(Me.LBL_TV)
         Me.Controls.Add(Me.LISTBOX_folders)
         Me.Controls.Add(Me.BOX_results)
         Me.Controls.Add(Me.BOX_extensions)
@@ -246,5 +286,9 @@ Partial Class Main
     Friend WithEvents ExtensionMenuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ApplicationInfoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LISTBOX_folders As System.Windows.Forms.ListBox
+    Friend WithEvents UpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LISTBOX_series As System.Windows.Forms.ListBox
+    Friend WithEvents LBL_TV As System.Windows.Forms.Label
+    Friend WithEvents CHECKBOX_TV As System.Windows.Forms.CheckBox
 
 End Class

@@ -26,6 +26,7 @@ Partial Class Favourites
         Me.BTN_add = New System.Windows.Forms.Button()
         Me.BTN_remove = New System.Windows.Forms.Button()
         Me.LISTBOX_dirs = New System.Windows.Forms.ListBox()
+        Me.LISTBOX_dirNames = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'BTN_add
@@ -56,12 +57,23 @@ Partial Class Favourites
         Me.LISTBOX_dirs.Name = "LISTBOX_dirs"
         Me.LISTBOX_dirs.Size = New System.Drawing.Size(284, 4)
         Me.LISTBOX_dirs.TabIndex = 3
+        Me.LISTBOX_dirs.Visible = False
+        '
+        'LISTBOX_dirNames
+        '
+        Me.LISTBOX_dirNames.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LISTBOX_dirNames.FormattingEnabled = True
+        Me.LISTBOX_dirNames.Location = New System.Drawing.Point(0, 4)
+        Me.LISTBOX_dirNames.Name = "LISTBOX_dirNames"
+        Me.LISTBOX_dirNames.Size = New System.Drawing.Size(284, 4)
+        Me.LISTBOX_dirNames.TabIndex = 4
         '
         'Favourites
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 41)
+        Me.Controls.Add(Me.LISTBOX_dirNames)
         Me.Controls.Add(Me.LISTBOX_dirs)
         Me.Controls.Add(Me.BTN_remove)
         Me.Controls.Add(Me.BTN_add)
@@ -76,4 +88,5 @@ Partial Class Favourites
     Friend WithEvents BTN_add As System.Windows.Forms.Button
     Friend WithEvents BTN_remove As System.Windows.Forms.Button
     Friend WithEvents LISTBOX_dirs As System.Windows.Forms.ListBox
+    Friend WithEvents LISTBOX_dirNames As System.Windows.Forms.ListBox
 End Class

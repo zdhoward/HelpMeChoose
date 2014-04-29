@@ -4,7 +4,7 @@
     '  of the Project Designer ("Properties" under the "Project" menu).
 
 
-    Private Sub SplashScreen1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub Splash_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Set up the dialog text at runtime according to the application's assembly information.  
 
         'TODO: Customize the application's assembly information in the "Application" pane of the project 
@@ -24,7 +24,11 @@
         '  Version control's designtime text to "Version {0}.{1:00}.{2}.{3}" or something similar.  See
         '  String.Format() in Help for more information.
         '
-        Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
+        Dim appVersion As Version = New Version(Application.ProductVersion)
+
+        'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
+        'Version.Text = System.String.Format(Version.Text, appVersion.Major, appVersion.Minor, appVersion.Build, appVersion.Revision)
+        'Version.Text = System.String.Format(Version.Text, Application.ProductVersion.
         'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
         'Copyright info
@@ -49,5 +53,4 @@
         Me.Close()
         LoadMain.Stop()
     End Sub
-
 End Class
