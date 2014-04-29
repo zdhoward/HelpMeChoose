@@ -6,7 +6,13 @@ A windows desktop application that aids in randomly selecting media within a cho
 Changelog
 ---------
 
-_Current_ Release 0.6.6
+_Current_ Release 0.6.8
+- Way more UI work done, nearing completion
+- Clean up
+- Debugging
+
+
+Release 0.6.6
 - Lots of UI work
 - Splash screen
 - Some organization and commentine
