@@ -3,6 +3,10 @@ HelpMeChoose
 
 A windows desktop application that aids in randomly selecting media within a chosen directory.
 
+Download
+--------
+http://www.ashedbit.com/ClickOnce/HelpMeChoose/setup.exe
+
 Changelog
 ---------
 
