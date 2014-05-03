@@ -30,7 +30,6 @@ Partial Class Browser
         Me.BTN_selectNone = New System.Windows.Forms.Button()
         Me.LISTBOX_srcDirectory = New System.Windows.Forms.ListBox()
         Me.BTN_invert = New System.Windows.Forms.Button()
-        Me.BTN_addPlaylist = New System.Windows.Forms.Button()
         Me.BTN_exportFiles = New System.Windows.Forms.Button()
         Me.BTN_play = New System.Windows.Forms.Button()
         Me.LISTBOX_folders = New System.Windows.Forms.ListBox()
@@ -48,7 +47,7 @@ Partial Class Browser
         Me.LISTBOX_selection.Location = New System.Drawing.Point(12, 19)
         Me.LISTBOX_selection.Name = "LISTBOX_selection"
         Me.LISTBOX_selection.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.LISTBOX_selection.Size = New System.Drawing.Size(202, 17)
+        Me.LISTBOX_selection.Size = New System.Drawing.Size(298, 17)
         Me.LISTBOX_selection.TabIndex = 0
         '
         'BTN_reroll
@@ -111,20 +110,11 @@ Partial Class Browser
         Me.BTN_invert.Text = "Invert Selection"
         Me.BTN_invert.UseVisualStyleBackColor = True
         '
-        'BTN_addPlaylist
-        '
-        Me.BTN_addPlaylist.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BTN_addPlaylist.Location = New System.Drawing.Point(423, 47)
-        Me.BTN_addPlaylist.Name = "BTN_addPlaylist"
-        Me.BTN_addPlaylist.Size = New System.Drawing.Size(90, 23)
-        Me.BTN_addPlaylist.TabIndex = 7
-        Me.BTN_addPlaylist.Text = "Add To Playlist"
-        Me.BTN_addPlaylist.UseVisualStyleBackColor = True
-        '
         'BTN_exportFiles
         '
-        Me.BTN_exportFiles.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BTN_exportFiles.Location = New System.Drawing.Point(423, 13)
+        Me.BTN_exportFiles.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BTN_exportFiles.Enabled = False
+        Me.BTN_exportFiles.Location = New System.Drawing.Point(422, 47)
         Me.BTN_exportFiles.Name = "BTN_exportFiles"
         Me.BTN_exportFiles.Size = New System.Drawing.Size(90, 23)
         Me.BTN_exportFiles.TabIndex = 8
@@ -145,7 +135,7 @@ Partial Class Browser
         '
         Me.LISTBOX_folders.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LISTBOX_folders.FormattingEnabled = True
-        Me.LISTBOX_folders.Location = New System.Drawing.Point(315, 19)
+        Me.LISTBOX_folders.Location = New System.Drawing.Point(411, 19)
         Me.LISTBOX_folders.Name = "LISTBOX_folders"
         Me.LISTBOX_folders.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.LISTBOX_folders.Size = New System.Drawing.Size(101, 17)
@@ -155,7 +145,7 @@ Partial Class Browser
         '
         Me.LISTBOX_series.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LISTBOX_series.FormattingEnabled = True
-        Me.LISTBOX_series.Location = New System.Drawing.Point(214, 19)
+        Me.LISTBOX_series.Location = New System.Drawing.Point(310, 19)
         Me.LISTBOX_series.Name = "LISTBOX_series"
         Me.LISTBOX_series.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.LISTBOX_series.Size = New System.Drawing.Size(101, 17)
@@ -176,7 +166,7 @@ Partial Class Browser
         Me.LBL_series.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LBL_series.AutoSize = True
         Me.LBL_series.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_series.Location = New System.Drawing.Point(211, 3)
+        Me.LBL_series.Location = New System.Drawing.Point(307, 3)
         Me.LBL_series.Name = "LBL_series"
         Me.LBL_series.Size = New System.Drawing.Size(42, 13)
         Me.LBL_series.TabIndex = 13
@@ -187,7 +177,7 @@ Partial Class Browser
         Me.LBL_folder.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LBL_folder.AutoSize = True
         Me.LBL_folder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBL_folder.Location = New System.Drawing.Point(312, 3)
+        Me.LBL_folder.Location = New System.Drawing.Point(408, 3)
         Me.LBL_folder.Name = "LBL_folder"
         Me.LBL_folder.Size = New System.Drawing.Size(42, 13)
         Me.LBL_folder.TabIndex = 14
@@ -205,7 +195,6 @@ Partial Class Browser
         Me.Controls.Add(Me.LISTBOX_folders)
         Me.Controls.Add(Me.BTN_play)
         Me.Controls.Add(Me.BTN_exportFiles)
-        Me.Controls.Add(Me.BTN_addPlaylist)
         Me.Controls.Add(Me.BTN_invert)
         Me.Controls.Add(Me.BTN_selectNone)
         Me.Controls.Add(Me.BTN_selectAll)
@@ -229,7 +218,6 @@ Partial Class Browser
     Friend WithEvents BTN_selectNone As System.Windows.Forms.Button
     Friend WithEvents LISTBOX_srcDirectory As System.Windows.Forms.ListBox
     Friend WithEvents BTN_invert As System.Windows.Forms.Button
-    Friend WithEvents BTN_addPlaylist As System.Windows.Forms.Button
     Friend WithEvents BTN_exportFiles As System.Windows.Forms.Button
     Friend WithEvents BTN_play As System.Windows.Forms.Button
     Friend WithEvents LISTBOX_folders As System.Windows.Forms.ListBox

@@ -1,18 +1,13 @@
-﻿'Imports WMPLib
-Public Class Browser
-    Private Declare Sub Sleep Lib "kernal32" (ByVal dwMilliseconds As Long)
-
+﻿Public Class Browser
     Private Sub BTN_back_Click(sender As Object, e As EventArgs) Handles BTN_back.Click
         Reinitialize()
         Main.Visible = True
         Me.Close()
+
     End Sub
 
     Private Sub LISTBOX_selection_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_selection.DoubleClick
         OpenSelection()
-    End Sub
-
-    Private Sub LISTBOX_selection_SelectedIndexChange(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -20,6 +15,7 @@ Public Class Browser
         'Main.oldRandomNums.Clear()
         Reinitialize()
         Main.RandomSelect()
+
     End Sub
 
     Private Sub BTN_selectAll_Click(sender As Object, e As EventArgs) Handles BTN_selectAll.Click
@@ -28,6 +24,7 @@ Public Class Browser
             LISTBOX_folders.SetSelected(i, True)
             LISTBOX_series.SetSelected(i, True)
         Next
+
     End Sub
 
     Private Sub BTN_selectNone_Click(sender As Object, e As EventArgs) Handles BTN_selectNone.Click
@@ -36,30 +33,32 @@ Public Class Browser
             LISTBOX_folders.SetSelected(i, False)
             LISTBOX_series.SetSelected(i, False)
         Next
+
     End Sub
 
-    ' Reinitialize()
-    ' This calls for every required field to be reset and readied for it's next use
     Private Sub Reinitialize()
+        ' This calls for every required field to be reset and readied for it's next use
         LISTBOX_srcDirectory.Items.Clear()
         LISTBOX_selection.Items.Clear()
         LISTBOX_folders.Items.Clear()
         LISTBOX_series.Items.Clear()
         Main.Reinitialize()
+
     End Sub
 
     Private Sub BTN_play_Click(sender As Object, e As EventArgs) Handles BTN_play.Click
         If (LISTBOX_selection.SelectedItems.Count() = 1) Then
-            System.Diagnostics.Process.Start(LISTBOX_srcDirectory.Items(LISTBOX_selection.SelectedIndex))
+            Process.Start(LISTBOX_srcDirectory.Items(LISTBOX_selection.SelectedIndex))
         Else
-            MsgBox(LISTBOX_selection.SelectedItems.Count.ToString())
+            ' MsgBox(LISTBOX_selection.SelectedItems.Count.ToString())
             ' Create Playlist
             ' Play playlist
 
             For Each item In LISTBOX_selection.SelectedIndices
-                System.Diagnostics.Process.Start(LISTBOX_srcDirectory.Items(item))
+                Process.Start(LISTBOX_srcDirectory.Items(item))
             Next
         End If
+
     End Sub
 
     Private Sub BTN_invert_Click(sender As Object, e As EventArgs) Handles BTN_invert.Click
@@ -74,6 +73,7 @@ Public Class Browser
                 LISTBOX_series.SetSelected(i, True)
             End If
         Next
+
     End Sub
 
     Private Sub Browser_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
@@ -90,7 +90,7 @@ Public Class Browser
         LISTBOX_selection.Height = ((LISTBOX_selection.Items.Count() + 1) * LISTBOX_selection.ItemHeight)
         LISTBOX_folders.Height = LISTBOX_selection.Height
         LISTBOX_series.Height = LISTBOX_selection.Height
-        Me.Height = LISTBOX_selection.Height + 120
+        Me.Height = LISTBOX_selection.Height + 124
 
         ' Resize the text boxes depending on what should show
         If (Main.CHECKBOX_TV.Checked) Then
@@ -112,6 +112,7 @@ Public Class Browser
         ' Set the Minimum and Maximum form sizes as the dynamically generated size
         Me.MinimumSize = New Size(Me.Width, Me.Height)
         Me.MaximumSize = New Size(Screen.PrimaryScreen.Bounds.Width, Me.Height)
+
     End Sub
 
     Private Sub LISTBOX_selection_MouseClick(sender As Object, e As MouseEventArgs) Handles LISTBOX_selection.MouseClick
@@ -127,6 +128,7 @@ Public Class Browser
 
     Private Sub LISTBOX_folders_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_folders.DoubleClick
         OpenSelection()
+
     End Sub
 
     Private Sub LISTBOX_folders_MouseClick(sender As Object, e As MouseEventArgs) Handles LISTBOX_folders.MouseClick
@@ -142,6 +144,7 @@ Public Class Browser
 
     Private Sub LISTBOX_series_DoubleClick(sender As Object, e As EventArgs) Handles LISTBOX_series.DoubleClick
         OpenSelection()
+
     End Sub
 
     Private Sub LISTBOX_series_MouseClick(sender As Object, e As MouseEventArgs) Handles LISTBOX_series.MouseClick
@@ -157,9 +160,10 @@ Public Class Browser
 
     Private Sub OpenSelection()
         If (LISTBOX_selection.SelectedIndex >= 0) Then
-            System.Diagnostics.Process.Start(LISTBOX_srcDirectory.Items(LISTBOX_selection.SelectedIndex))
+            Process.Start(LISTBOX_srcDirectory.Items(LISTBOX_selection.SelectedIndex))
         Else
             MsgBox("Please make a selection first")
         End If
+
     End Sub
 End Class

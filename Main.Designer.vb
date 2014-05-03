@@ -186,6 +186,7 @@ Partial Class Main
         '
         'UpdateToolStripMenuItem
         '
+        Me.UpdateToolStripMenuItem.Enabled = False
         Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
         Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(57, 20)
         Me.UpdateToolStripMenuItem.Text = "&Update"

@@ -32,8 +32,8 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>18</ApplicationRevision>
-    <ApplicationVersion>0.6.6.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.7.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -98,16 +98,17 @@
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
-    <Import Include="Kernal32" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
+    <Import Include="System.Deployment.Application" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.IO" />
     <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
     <Import Include="System.Windows.Forms" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
@@ -115,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Extensions.Designer.vb">
+      <DependentUpon>Extensions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Favourites.Designer.vb">
       <DependentUpon>Favourites.vb</DependentUpon>
     </Compile>
@@ -157,6 +164,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Extensions.resx">
+      <DependentUpon>Extensions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Favourites.resx">
       <DependentUpon>Favourites.vb</DependentUpon>
     </EmbeddedResource>

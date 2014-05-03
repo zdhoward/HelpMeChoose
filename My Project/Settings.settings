@@ -9,10 +9,16 @@
       <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="FileExtensions" Type="System.String" Scope="User">
-      <Value Profile="(Default)">.avi .mov .mp4 .mpg .mkv .wmv .asf .asx .rm .rmvb</Value>
+      <Value Profile="(Default)">.avi .mov .mp4 .mpg .mkv .wmv .m4v</Value>
     </Setting>
     <Setting Name="Favourites" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AllExtensions" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.avi .mov .mp4 .mpg .mkv .m4v .wmv .asf .asx .rm .rmvb</Value>
+    </Setting>
+    <Setting Name="isTV" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

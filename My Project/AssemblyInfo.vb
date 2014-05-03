@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("HelpMeChoose")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyTitle("HelpMeChoose!")> 
+<Assembly: AssemblyDescription("The helpful media selector.")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("HelpMeChoose")> 
-<Assembly: AssemblyCopyright("Copyright ©  2013")> 
+<Assembly: AssemblyProduct("HelpMeChoose!")> 
+<Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

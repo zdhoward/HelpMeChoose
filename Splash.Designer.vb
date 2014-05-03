@@ -84,7 +84,7 @@ Partial Class Splash
         Me.Version.Name = "Version"
         Me.Version.Size = New System.Drawing.Size(241, 20)
         Me.Version.TabIndex = 1
-        Me.Version.Text = "Version 0.6.8"
+        Me.Version.Text = "Version {0}.{1}.{2}.{3}"
         '
         'Copyright
         '
@@ -116,6 +116,7 @@ Partial Class Splash
         Me.ProgressBar.Size = New System.Drawing.Size(237, 23)
         Me.ProgressBar.Step = 1
         Me.ProgressBar.TabIndex = 1
+        Me.ProgressBar.Visible = False
         '
         'LoadingTimer
         '

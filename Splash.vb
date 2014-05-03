@@ -1,41 +1,41 @@
 ﻿Public NotInheritable Class Splash
 
-    'TODO: This form can easily be set as the splash screen for the application by going to the "Application" tab
-    '  of the Project Designer ("Properties" under the "Project" menu).
-
+    Dim updateAvailable As Boolean
+    Public wait As Boolean = False
 
     Private Sub Splash_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'Set up the dialog text at runtime according to the application's assembly information.  
 
-        'TODO: Customize the application's assembly information in the "Application" pane of the project 
-        '  properties dialog (under the "Project" menu).
-
         'Application title
-        If My.Application.Info.Title <> "" Then
+        If My.Application.Info.Title <> vbNullString Then
             ApplicationTitle.Text = My.Application.Info.Title
         Else
             'If the application title is missing, use the application name, without the extension
             ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
 
-        'Format the version information using the text set into the Version control at design time as the
-        '  formatting string.  This allows for effective localization if desired.
-        '  Build and revision information could be included by using the following code and changing the 
-        '  Version control's designtime text to "Version {0}.{1:00}.{2}.{3}" or something similar.  See
-        '  String.Format() in Help for more information.
-        '
-        Dim appVersion As Version = New Version(Application.ProductVersion)
-
-        'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.Build, My.Application.Info.Version.Revision)
-        'Version.Text = System.String.Format(Version.Text, appVersion.Major, appVersion.Minor, appVersion.Build, appVersion.Revision)
-        'Version.Text = System.String.Format(Version.Text, Application.ProductVersion.
-        'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
+        'MsgBox(My.Application.Deployment.CurrentVersion.Major.ToString)
+        If (ApplicationDeployment.IsNetworkDeployed) Then
+            Version.Text = System.String.Format(Version.Text, My.Application.Deployment.CurrentVersion.Major, My.Application.Deployment.CurrentVersion.Minor, My.Application.Deployment.CurrentVersion.Build, My.Application.Deployment.CurrentVersion.Revision)
+        Else
+            Version.Text = "Debugging"
+        End If
 
         'Copyright info
         Copyright.Text = My.Application.Info.Copyright
 
         ' Load Program
-        LoadingTimer.Start()
+        If (wait) Then
+            LoadingTimer.Start()
+        Else
+            ' LoadingTimer.Start()
+            ManualUpdateCheck()
+            'LoadMain.Start()
+
+            Main.Show()
+            Main.UpdateToolStripMenuItem.Enabled = updateAvailable
+            Me.Close()
+        End If
 
     End Sub
 
@@ -44,13 +44,45 @@
             ProgressBar.PerformStep()
         ElseIf (ProgressBar.Value >= ProgressBar.Maximum) Then
             LoadMain.Start()
+            LoadingTimer.Stop()
+        End If
+
+        If ProgressBar.Value = ProgressBar.Maximum - (ProgressBar.Step * 20) Then
+            'LoadingTimer.Stop()
+            ManualUpdateCheck()
+            'LoadingTimer.Start()
         End If
 
     End Sub
 
     Private Sub LoadMain_Tick(sender As Object, e As EventArgs) Handles LoadMain.Tick
         Main.Show()
+        Main.UpdateToolStripMenuItem.Enabled = updateAvailable
         Me.Close()
         LoadMain.Stop()
+    End Sub
+
+    Private Sub ManualUpdateCheck()
+        Dim info As UpdateCheckInfo = Nothing
+
+        If (ApplicationDeployment.IsNetworkDeployed) Then
+            Dim AD As ApplicationDeployment = ApplicationDeployment.CurrentDeployment
+
+            Try
+                info = AD.CheckForDetailedUpdate()
+            Catch dde As DeploymentDownloadException
+                MessageBox.Show("The new version of the application cannot be downloaded at this time. " + ControlChars.Lf & ControlChars.Lf & "Please check your network connection, or try again later. Error: " + dde.Message)
+                Return
+            Catch ioe As InvalidOperationException
+                MessageBox.Show("This application cannot be updated. It is likely not a ClickOnce application. Error: " & ioe.Message)
+                Return
+            End Try
+
+            If (info.UpdateAvailable) Then
+                updateAvailable = True
+            Else
+                updateAvailable = False
+            End If
+        End If
     End Sub
 End Class

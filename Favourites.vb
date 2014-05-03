@@ -52,6 +52,7 @@
             End If
         Next
         My.Settings.Favourites = txtFavourites
+        My.Settings.Save()
 
     End Sub
 
@@ -64,5 +65,9 @@
                 increaseHeight(1)
             End If
         Next
+    End Sub
+
+    Private Sub BTN_done_Click(sender As Object, e As EventArgs) Handles BTN_done.Click
+        Me.Close()
     End Sub
 End Class

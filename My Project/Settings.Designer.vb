@@ -80,7 +80,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute(".avi .mov .mp4 .mpg .mkv .wmv .asf .asx .rm .rmvb")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".avi .mov .mp4 .mpg .mkv .wmv .m4v")>  _
         Public Property FileExtensions() As String
             Get
                 Return CType(Me("FileExtensions"),String)
@@ -99,6 +99,30 @@ Namespace My
             End Get
             Set
                 Me("Favourites") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute(".avi .mov .mp4 .mpg .mkv .m4v .wmv .asf .asx .rm .rmvb")>  _
+        Public Property AllExtensions() As String
+            Get
+                Return CType(Me("AllExtensions"),String)
+            End Get
+            Set
+                Me("AllExtensions") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property isTV() As Boolean
+            Get
+                Return CType(Me("isTV"),Boolean)
+            End Get
+            Set
+                Me("isTV") = value
             End Set
         End Property
     End Class
