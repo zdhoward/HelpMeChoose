@@ -76,7 +76,12 @@ Partial Class Extensions
         Me.Controls.Add(Me.BTN_remove)
         Me.Controls.Add(Me.BTN_add)
         Me.Controls.Add(Me.CHECKLIST_extensions)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Extensions"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Extensions"
         Me.ResumeLayout(False)
 

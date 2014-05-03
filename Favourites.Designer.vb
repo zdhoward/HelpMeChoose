@@ -93,6 +93,9 @@ Partial Class Favourites
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Favourites"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Favourites"
         Me.ResumeLayout(False)
 
